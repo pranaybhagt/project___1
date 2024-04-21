@@ -11,5 +11,7 @@ export function emailValidator(control:AbstractControl):ValidationErrors | null{
     // Return validation result
     return isValid ? null : { 'invalidEmail': true };
 
+    
+
    
 }

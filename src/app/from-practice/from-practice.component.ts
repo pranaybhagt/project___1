@@ -9,11 +9,14 @@ import {emailValidator} from '../Validators/email';
   styleUrls: ['./from-practice.component.css']
 })
 export class FromPracticeComponent {
+  msg:string="Pranay"
 
   registrationFrom!:FormGroup;
   constructor(private fb:FormBuilder){
 
   }
+
+  
 
   ngOnInit(){
     this.registrationFrom = this.fb.group({
