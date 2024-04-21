@@ -10,6 +10,7 @@ import {emailValidator} from '../Validators/email';
 })
 export class FromPracticeComponent {
   msg:string="Pranay"
+  msg1:string="Pranay"
 
   registrationFrom!:FormGroup;
   constructor(private fb:FormBuilder){
