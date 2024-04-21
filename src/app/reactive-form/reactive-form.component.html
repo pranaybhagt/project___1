@@ -1,0 +1,34 @@
+<div class="container w-50 border mt-2 p-2">
+    <form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="id1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="id1" formControlName="name">
+        </div>
+        <div class="mb-3">
+          <label for="id2" class="form-label">Mobile No</label>
+          <input type="text" class="form-control" id="id2" formControlName="mobileNo">
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email</label>
+            <input type="email" class="form-control" id="id3" formControlName="email">
+          </div>
+          <div class="mb-3">
+            <label for="id4" class="form-label">City</label>
+            <input type="text" class="form-control" id="id4" formControlName="city">
+          </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <div class="mt-5">
+        <div class="mt-1"><span class="fw-bold"> Value</span>:&nbsp;{{registrationForm.value | json}}</div>
+        <div class="mt-1"> <span class="fw-bold">Touched</span>&nbsp;{{registrationForm.touched}}</div>
+        <div class="mt-1"><span class="fw-bold"> Untouched</span>&nbsp;{{registrationForm.untouched}}</div>
+        <div class="mt-1"><span class="fw-bold"> Dirty</span>&nbsp;{{registrationForm.dirty}}</div>
+        <div class="mt-1"><span class="fw-bold"> Pristine</span>&nbsp;{{registrationForm.pristine}}</div>
+        <div class="mt-1"><span class="fw-bold"> valid</span>&nbsp;{{registrationForm.valid}}</div>
+        <div class="mt-1"><span class="fw-bold"> invalid</span>&nbsp;{{registrationForm.invalid}}</div>
+     </div>
+
+
+</div>

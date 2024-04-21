@@ -1,0 +1,52 @@
+<div class="container w-50 border mt-2 p-2">
+    <h4>Reactive Form:</h4>
+    <form [formGroup]="registrationFrom" (ngSubmit)="saveForm()">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1" formControlName="name">
+            <div *ngIf="registrationFrom.controls?.['name']?.invalid && (registrationFrom.controls?.['name']?.dirty || registrationFrom.controls?.['name']?.touched)">
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['name']?.errors?.['required']">It is required</div>
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['name']?.errors?.['minlength'] || registrationFrom.controls?.['name']?.errors?.['maxlength']">Min 2 and max 20 char allowed</div>
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['name']?.errors?.['pattern']">Please Enter Valid Name</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" id="id2" formControlName="mobileno">
+            <div *ngIf="registrationFrom.controls?.['mobileno']?.invalid && (registrationFrom.controls?.['mobileno']?.dirty || registrationFrom.controls?.['mobileno']?.touched)">
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['mobileno']?.errors?.['required']">It is required</div>
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['mobileno']?.errors?.['pattern']">Please Enter Valid number</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id8" class="form-label">Password</label>
+            <input type="text" class="form-control" id="id8" formControlName="password">
+        </div>
+        <div class="mb-3">
+            <label for="id9" class="form-label">Confirm Password</label>
+            <input type="text" class="form-control" id="id9" formControlName="confirmPassword">
+            <div *ngIf="registrationFrom.controls?.['confirmPassword']?.invalid && (registrationFrom.controls?.['confirmPassword']?.dirty || registrationFrom.controls?.['confirmPassword']?.touched)">
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['confirmPassword']?.errors?.['passwordMismatch']">Password and confirm password is not same</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email</label>
+            <input type="email" class="form-control" id="id3" formControlName="email">
+            <div *ngIf="registrationFrom.controls?.['email']?.invalid && (registrationFrom.controls?.['email']?.dirty || registrationFrom.controls?.['email']?.touched)">
+                <div class="invalid-feedback d-block" *ngIf="registrationFrom.controls?.['email']?.errors?.['invalidEmail']">Please Enter valid email id</div>
+            </div>
+        </div>
+        <div formGroupName="address">
+            <div class="mb-3">
+                <label for="id4" class="form-label">State</label>
+                <input type="text" class="form-control" id="id4" formControlName="state">
+            </div>
+            <div class="mb-3">
+                <label for="id5" class="form-label">City</label>
+                <input type="text" class="form-control" id="id5" formControlName="city">
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="registrationFrom.invalid">Submit</button>
+    </form>
+</div>

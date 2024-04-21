@@ -1,0 +1,46 @@
+<div class="container w-50 border mt-2 p-2">
+    <form [formGroup]="registartionForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="id1" class="form-label">Name</label>
+          <input type="text" class="form-control" id="id1" formControlName="name">
+          <div *ngIf="registartionForm.controls?.['name']?.invalid && (registartionForm.controls?.['name']?.dirty || registartionForm.controls?.['name']?.touched)">
+              <div class="invalid-feedback d-block" *ngIf="registartionForm.controls?.['name']?.errors?.['required']">It is required</div>
+              <div class="invalid-feedback d-block"*ngIf="registartionForm.controls?.['name']?.errors?.['minlength'] || registartionForm.controls?.['name']?.errors?.['maxlength']">min 2 and Max 50 char are allowed</div>
+              <div class="invalid-feedback d-block" *ngIf="registartionForm.controls?.['name']?.errors?.['pattern']">Please Enter Valid Name</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="id2" class="form-label">Mobile No</label>
+          <input type="text" class="form-control" id="id2" formControlName="mobileNo">
+          <div *ngIf="registartionForm.controls?.['mobileNo']?.invalid && (registartionForm.controls?.['mobileNo']?.dirty || registartionForm.controls?.['mobileNo']?.touched)">
+            <div class="invalid-feedback d-block" *ngIf="registartionForm.controls?.['mobileNo']?.errors?.['required']">It is required</div>
+            <!-- <div class="invalid-feedback d-block"*ngIf="registartionForm.controls?.['mobileNo']?.errors?.['minlength'] || registartionForm.controls?.['mobileNo']?.errors?.['maxlength']">min 2 and Max 50 char are allowed</div> -->
+            <div class="invalid-feedback d-block" *ngIf="registartionForm.controls?.['mobileNo']?.errors?.['pattern']">Please Enter Valid Number</div>
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email</label>
+            <input type="email" class="form-control" id="id3" formControlName="email">
+          </div>
+          <div class="mb-3">
+            <label for="id4" class="form-label">City</label>
+            <input type="text" class="form-control" id="id4" formControlName="city">
+          </div>
+
+          <div formGroupName="address">
+              <div class="mb-3">
+                <label for="id5" class="form-label">Address Line 1</label>
+                <input type="email" class="form-control" id="id5" formControlName="line1">
+              </div>
+              <div class="mb-3">
+                <label for="id6" class="form-label">Address Line 1</label>
+                <input type="text" class="form-control" id="id6" formControlName="line2">
+              </div>
+          </div>
+       
+        <button type="submit" class="btn btn-primary" [disabled]="registartionForm.invalid">Submit</button> 
+        <!-- <button type="submit" class="btn btn-primary ms-2" (click)="getData()">Get Data</button>
+        <button type="submit" class="btn btn-primary ms-2" (click)="patchData()">Patch Data</button>
+        <button type="submit" class="btn btn-primary ms-2" (click)="setCity()">Set City</button> -->
+      </form>
+</div>
